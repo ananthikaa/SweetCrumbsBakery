@@ -2,28 +2,33 @@
 
 ## Overview
 
-Sweet Crumbs Bakery is an Android checkout and billing application developed as part of the Albertsons case study assignment.
+Sweet Crumbs Bakery is an Android-based checkout and billing application developed as part of the Albertsons case study assignment.
 
-The application allows users to browse bakery products, add items to a cart, apply promotional offers, calculate taxes, and view a detailed final bill.
+The application allows users to browse bakery products, add items to a cart, update quantities, apply promotional offers, calculate GST, and view a detailed final bill. The Android application communicates with a Node.js and Express backend through REST APIs.
+
+The backend is deployed on Render, allowing the application to be installed and used on Android devices without requiring local backend setup.
 
 ---
 
 ## Features
 
-- Browse bakery products
-- Add and remove items from cart
-- Update item quantities
-- Automatic subtotal calculation
-- 10% discount for orders above ₹1000
+- Browse bakery products with images and pricing
+- Add products to cart
+- Increase or decrease item quantities
+- Remove items automatically when quantity reaches zero
+- Automatic cart subtotal calculation
+- 10% discount for eligible orders
 - GST calculation
-- Detailed billing summary
-- Product images and modern UI
+- Detailed bill summary including subtotal, discount, tax, and final amount
+- Modern Android UI using Fragments and RecyclerView
+- Backend deployed online using Render
+- Tested on a physical Android device
 
 ---
 
 ## Technology Stack
 
-### Android
+### Android Application
 
 - Java
 - Android Fragments
@@ -36,60 +41,57 @@ The application allows users to browse bakery products, add items to a cart, app
 - Node.js
 - Express.js
 - REST APIs
+- JSON Data Exchange
+
+### Deployment & Version Control
+
+- Render (Backend Hosting)
+- GitHub (Source Code Hosting)
+- GitHub Releases (APK Distribution)
 
 ---
 
-## Offer Logic
+## How to Use the Application
 
-- Orders with subtotal greater than or equal to ₹1000 receive a 10% discount.
-- GST is calculated after discount application.
-- Final amount = Subtotal - Discount + Tax
+### Option 1: Install APK on an Android Phone
 
----
+A prebuilt APK is available in the **GitHub Releases** section of this repository.
 
-## Project Structure
+Steps:
 
-```text
-app/        Android Application
-backend/    Node.js Billing APIs
-```
+1. Download the latest APK from the Releases section.
+2. Transfer the APK to an Android device if required.
+3. Open the APK file.
+4. Allow installation from unknown sources if prompted.
+5. Install and launch the application.
+6. Browse products, add items to the cart, and generate the final bill.
 
----
-
-## API Endpoints
-
-### Products
-
-```http
-GET /products
-```
-
-Returns product list.
-
-### Billing
-
-```http
-POST /billing
-```
-
-Request:
-
-```json
-{
-  "items": [
-    {
-      "productId": 1,
-      "quantity": 2
-    }
-  ]
-}
-```
+The application connects directly to the deployed backend hosted on Render.
 
 ---
 
-## Setup Instructions
+### Option 2: Run from Android Studio
 
-### Backend
+1. Clone the repository.
+
+```bash
+git clone https://github.com/ananthikaa/SweetCrumbsBakery.git
+```
+
+2. Open the project in Android Studio.
+3. Allow Gradle synchronization to complete.
+4. Ensure internet connectivity is available.
+5. Run the application on an emulator or Android device.
+
+The application is already configured to use the deployed backend.
+
+---
+
+### Backend Setup (Optional)
+
+The backend is already deployed and does not need to be run locally for normal usage.
+
+For local testing:
 
 ```bash
 cd backend
@@ -97,48 +99,84 @@ npm install
 node server.js
 ```
 
-Server runs on:
+Local backend URL:
 
 ```text
 http://localhost:5000
 ```
 
-### Android
+Deployed backend URL:
 
-1. Open project in Android Studio
-2. Sync Gradle
-3. Update BASE_URL if needed
-4. Run application
+```text
+https://sweet-crumbs-bakery-backend.onrender.com/
+```
+
+---
+
+## Offer Logic
+
+- A 10% discount is applied when the cart subtotal is greater than or equal to ₹1000.
+- GST is calculated after applying the discount.
+- Final Amount = Subtotal − Discount + GST
 
 ---
 
 ## Screenshots
 
-### Menu Screen
+Application screenshots are available in the **screenshots** folder of this repository.
 
-![Menu](screenshots/menu_screen.png)
+- Menu Screen – `screenshots/menu_screen.jpeg`
+- Cart Screen – `screenshots/cart_screen.jpeg`
+- Bill Screen – `screenshots/bill_screen.jpeg`
 
-### Cart Screen
+---
 
-![Cart](screenshots/cart_screen.png)
+## Testing
 
-### Bill Screen
+The application was tested on a physical Android device using the deployed Render backend.
 
-![Bill](screenshots/bill_screen.png)
+The following scenarios were verified:
+
+- Product data loads successfully from the backend
+- Products can be added to the cart
+- Quantities can be increased and decreased
+- Items are removed when quantity reaches zero
+- Cart subtotal is calculated correctly
+- Discount is applied when subtotal reaches ₹1000
+- GST is calculated correctly
+- Final bill displays accurate values
+- APK installation and execution work successfully on a real Android device
 
 ---
 
 ## Assumptions
 
-- Product catalog is predefined.
-- Single promotional offer is supported.
-- Tax rate is fixed in backend logic.
-- Internet connectivity is available between app and backend.
+- Product data is predefined and served by the backend.
+- A single promotional offer is supported.
+- The discount policy is fixed at 10% for orders with a subtotal of ₹1000 or more.
+- GST is calculated after discount application.
+- Billing calculations are performed on the backend.
+- Internet connectivity is required for communication with the deployed backend.
+- User authentication, payment gateway integration, and order history are outside the scope of this case study.
 
 ---
 
 ## AI-Assisted Development
 
-This project was developed using ChatGPT as an AI-assisted development tool. ChatGPT was used to assist with Android UI design, RecyclerView implementation, Retrofit integration, backend API development, billing logic, debugging, and GitHub repository setup.
+This project was developed using multiple AI-assisted development tools, including ChatGPT, Gemini AI (Android Studio), and GitHub Copilot (VS Code).
 
-The AI-assisted workflow helped accelerate development and resolve implementation issues efficiently while allowing manual customization and testing of the final solution.
+These tools were used throughout the development process for application planning, Android UI design, RecyclerView implementation, Retrofit integration, backend API development, billing logic implementation, debugging, deployment setup, Git/GitHub workflows, and documentation.
+
+AI assistance helped accelerate development and problem-solving while enabling rapid iteration on both frontend and backend components. All generated suggestions were manually reviewed, customized, integrated, and tested before inclusion in the final solution.
+
+The final application was validated through functional testing on a physical Android device using the deployed backend service.
+
+---
+
+## Repository Contents
+
+- Android Application Source Code
+- Node.js Backend Source Code
+- Screenshots
+- Documentation
+- APK Download via GitHub Releases
