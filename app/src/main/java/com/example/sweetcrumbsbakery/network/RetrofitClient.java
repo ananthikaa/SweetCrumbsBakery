@@ -8,7 +8,7 @@ public class RetrofitClient {
     private static Retrofit retrofit;
 
     private static final String BASE_URL =
-            "http://192.168.0.124:5000/";
+            "https://sweet-crumbs-bakery-backend.onrender.com/";
 
     public static Retrofit getInstance() {
 
