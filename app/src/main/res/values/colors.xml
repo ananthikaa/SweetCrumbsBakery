@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="cream_bg">#FFF8F0</color>
+    <color name="chocolate">#4E342E</color>
+    <color name="caramel">#D2691E</color>
+    <color name="soft_caramel">#F3C7A6</color>
+    <color name="dark_cocoa">#3E2723</color>
+    <color name="muted_brown">#795548</color>
+    <color name="white">#FFFFFF</color>
+    <color name="header_bg">#F6D7B0</color>
+    <color name="section_bg">#FFF1E0</color>
+    <color name="success_bg">#E8F5E9</color>
+
+</resources>
