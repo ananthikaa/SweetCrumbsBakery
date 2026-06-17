@@ -37,7 +37,7 @@ function calculateBill(cartItems) {
   }
 
   const taxableAmount = subtotal - discount;
-  const tax = taxableAmount * 0.18;
+  const tax = taxableAmount * 0.05;
   const finalAmount = taxableAmount + tax;
 
   return {

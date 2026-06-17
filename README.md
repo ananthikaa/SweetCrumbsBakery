@@ -116,7 +116,7 @@ https://sweet-crumbs-bakery-backend.onrender.com/
 ## Offer Logic
 
 - A 10% discount is applied when the cart subtotal is greater than or equal to ₹1000.
-- GST is calculated after applying the discount.
+- A GST rate of 5% is calculated after applying the discount.
 - Final Amount = Subtotal − Discount + GST
 
 ---
@@ -154,7 +154,7 @@ The following scenarios were verified:
 - Product data is predefined and served by the backend.
 - A single promotional offer is supported.
 - The discount policy is fixed at 10% for orders with a subtotal of ₹1000 or more.
-- GST is calculated after discount application.
+- GST is fixed at 5% and calculated after discount application.
 - Billing calculations are performed on the backend.
 - Internet connectivity is required for communication with the deployed backend.
 - User authentication, payment gateway integration, and order history are outside the scope of this case study.
